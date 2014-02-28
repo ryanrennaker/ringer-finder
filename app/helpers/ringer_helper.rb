@@ -1,0 +1,2 @@
+module RingerHelper
+end
