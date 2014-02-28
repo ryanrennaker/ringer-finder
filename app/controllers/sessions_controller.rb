@@ -7,18 +7,19 @@ class SessionsController < ApplicationController
       if user.present?
         if user.password == params[:pwd]
           session[:user_id] = user.id
-          redirect_to root_url, notice: "Hello there!"
+          usershowpage = "/users/"+user.id.to_s+"/show"
+          redirect_to usershowpage, notice: "Login successful"
         else
-          redirect_to root_url, notice: "Invalid login"
+          redirect_to "/login", notice: "Invalid login"
         end
     else
-     redirect_to root_url, notice: "Nice Try!"
+     redirect_to "/login", notice: "Invalid login"
     end
   end
 
   def destroy
     reset_session
-    redirect_to root_url, notice: "You have been logged out"
+    redirect_to root_url, notice: "Log out successful"
   end
 
 end

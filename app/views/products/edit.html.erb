@@ -5,11 +5,11 @@
 <form action="/products/<%= @product.id %>/update">
   <div class="form-group">
     <label>Enter a Product Name:</label>
-    <input value=<%= @product.name %> name="name" type="text" class="form-control input-md" placeholder="Example: 5-Piece Luggage Set">
+    <input value="<%= @product.name %>" name="name" type="text" class="form-control input-md" placeholder="Example: 5-Piece Luggage Set">
   </div>
   <div class="form-group">
     <label>Enter a Product Decription:</label>
-    <textarea value=<%= @product.description %> name="description" class="form-control input-md" rows="5" ></textarea>
+    <textarea name="description" class="form-control input-md" rows="5" ><%= @product.description %></textarea>
   </div>
   <div class="form-group">
     <label>Enter the Price:</label>
