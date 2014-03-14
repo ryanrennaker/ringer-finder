@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1>Ringer Profile</h1>
+</div>
+<% ringer = @rs_hash[:ringer] %>
+<% sports = @rs_hash[:sports] %>
+<% if ringer[:is_male] %>
+<% gender = "Male" %>
+<% else %>
+<% gender = "Female"%>
+<% end %>
+
+<div class="row">
+  <div class="col-md-4">
+    <img width="200" src=<%= ringer[:img_url]%>>
+    <h4><%= ringer[:city]%>, <%=ringer[:state]%></h4>
+  </div>
+  <div class="col-md-8">
+    <h3><%= ringer[:first]%> <%= ringer[:last]%>   |   <%= gender %>   |   Competition Level: <%= ringer[:comp_level]%></h3>
+    <p class="lead"><%=sports.join(", ") %></p>
+    <p>Bio: <%= ringer[:bio] %></p>
+  </div>
+</div>
+</br>
+</br>
+</br>
+</br>
+<div class="lead">
+  <a href="/ringers">View all Ringers</a>
+</div>

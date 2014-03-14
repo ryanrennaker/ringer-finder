@@ -19,6 +19,8 @@ Week6::Application.routes.draw do
   # READ
   get "/products" => 'products#index'
   get "/products/:product_id/show" => "products#show"
+  get "/ringers" => 'ringers#index'
+  get "/ringers/:ringer_id/show" => "ringers#show"
 
   # UPDATE
   get "/products/:product_id/edit" => "products#edit"
