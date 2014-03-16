@@ -34763,3 +34763,401 @@ Processing by HomeController#index as HTML
   [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
   [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
 Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 29]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 30]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 31]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 32]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "users" ("created_at", "has_ringer", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["has_ringer", false], ["password", "hockey"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["username", "madskillz"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "has_ringer", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["has_ringer", false], ["password", "hockey"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["username", "nowyouseemenowyoudont"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "has_ringer", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["has_ringer", false], ["password", "hockey"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["username", "judochop"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "has_ringer", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["has_ringer", false], ["password", "hockey"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["username", "ryan"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mRinger Load (0.3ms)[0m  SELECT "ringers".* FROM "ringers"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "ringers" WHERE "ringers"."id" = ?  [["id", 27]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "ringers" WHERE "ringers"."id" = ?[0m  [["id", 28]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ringers" WHERE "ringers"."id" = ?  [["id", 29]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "ringers" WHERE "ringers"."id" = ?[0m  [["id", 30]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."has_ringer" = 'f' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ringers" ("bio", "city", "comp_level", "created_at", "first", "img_url", "is_male", "last", "state", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bio", "I'm a gangsta balla with mad skillz yo. Put me on your team and we'll win every time."], ["city", "Evanston"], ["comp_level", 11], ["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["first", "Joe"], ["img_url", "/profile-joe-schmoe.jpg"], ["is_male", true], ["last", "Schmoe"], ["state", "IL"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["user_id", 38]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "has_ringer" = ?, "updated_at" = ? WHERE "users"."id" = 38  [["has_ringer", true], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."has_ringer" = 'f' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ringers" ("bio", "city", "comp_level", "created_at", "first", "img_url", "is_male", "last", "state", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bio", "I can hold my breath for over 4 minutes. Want to see me escape from a straight jacket?"], ["city", "Appleton"], ["comp_level", 3], ["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["first", "Harry"], ["img_url", "/profile-harry-houdini.jpg"], ["is_male", true], ["last", "Houdini"], ["state", "WI"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["user_id", 39]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "has_ringer" = ?, "updated_at" = ? WHERE "users"."id" = 39[0m  [["has_ringer", true], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."has_ringer" = 'f' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ringers" ("bio", "city", "comp_level", "created_at", "first", "img_url", "is_male", "last", "state", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bio", "When you work with chains or any kind of weapons, or just when you're using hand-to-hand combat, you are going to get hurt."], ["city", "Los Angeles"], ["comp_level", 8], ["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["first", "Lucy"], ["img_url", "/profile-lucy-liu.bmp"], ["is_male", false], ["last", "Liu"], ["state", "CA"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["user_id", 40]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "has_ringer" = ?, "updated_at" = ? WHERE "users"."id" = 40  [["has_ringer", true], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."has_ringer" = 'f' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ringers" ("bio", "city", "comp_level", "created_at", "first", "img_url", "is_male", "last", "state", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bio", "I'm the man with the master plan. And the keys to the database."], ["city", "Kirkland"], ["comp_level", 7], ["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["first", "Ryan"], ["img_url", "/profile-lebron-james.jpg"], ["is_male", true], ["last", "Rennaker"], ["state", "WA"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["user_id", 41]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "has_ringer" = ?, "updated_at" = ? WHERE "users"."id" = 41[0m  [["has_ringer", true], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ringers"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."has_ringer" = 'f'
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "sports" WHERE "sports"."id" = ?[0m  [["id", 37]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "sports" WHERE "sports"."id" = ?  [["id", 38]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "sports" WHERE "sports"."id" = ?[0m  [["id", 39]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "sports" WHERE "sports"."id" = ?  [["id", 40]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "sports" WHERE "sports"."id" = ?[0m  [["id", 41]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "sports" WHERE "sports"."id" = ?  [["id", 42]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "sports" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["name", "Flag Football"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sports" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["name", "Basketball"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "sports" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["name", "Softball"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sports" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["name", "Kickball"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "sports" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["name", "Ultimate Frisbee"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "sports" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["name", "Soccer"], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "sports"
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?[0m  [["id", 107]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?  [["id", 108]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?[0m  [["id", 109]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?  [["id", 110]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?[0m  [["id", 111]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?  [["id", 112]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?[0m  [["id", 113]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?  [["id", 114]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?[0m  [["id", 115]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?  [["id", 116]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?[0m  [["id", 117]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?  [["id", 118]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?[0m  [["id", 119]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?  [["id", 120]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."first" = 'Joe' LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 37], ["sport_id", 43], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 37], ["sport_id", 44], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 37], ["sport_id", 45], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 37], ["sport_id", 46], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 37], ["sport_id", 47], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 37], ["sport_id", 48], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."first" = 'Harry' LIMIT 1
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."name" = 'Softball' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 38], ["sport_id", 45], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."name" = 'Kickball' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 38], ["sport_id", 46], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."first" = 'Lucy' LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."name" = 'Softball' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 39], ["sport_id", 45], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."name" = 'Ultimate Frisbee' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 39], ["sport_id", 47], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."name" = 'Soccer' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 39], ["sport_id", 48], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."first" = 'Ryan' LIMIT 1
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."name" = 'Flag Football' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 40], ["sport_id", 43], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."name" = 'Basketball' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00], ["ringer_id", 40], ["sport_id", 44], ["updated_at", Sun, 16 Mar 2014 18:49:07 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."name" = 'Kickball' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:49:08 UTC +00:00], ["ringer_id", 40], ["sport_id", 46], ["updated_at", Sun, 16 Mar 2014 18:49:08 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ringer_sports"[0m
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:49:12 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/users/32/show
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:49:12 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/users_controller.rb:22:in `show'
+
+
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.3ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:49:18 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/users_controller.rb:22:in `show'
+
+
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:49:23 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:49:25 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/users/32/show
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:49:25 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/users_controller.rb:22:in `show'
+
+
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:50:10 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-03-16 13:50:13 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/create?uname=a&pwd=a" for 127.0.0.1 at 2014-03-16 13:50:17 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"uname"=>"a", "pwd"=>"a"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("created_at", "has_ringer", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:50:17 UTC +00:00], ["has_ringer", false], ["password", "a"], ["updated_at", Sun, 16 Mar 2014 18:50:17 UTC +00:00], ["username", "a"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'a' LIMIT 1[0m
+Redirected to http://localhost:3000/users/42/show
+Completed 302 Found in 20ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/42/show" for 127.0.0.1 at 2014-03-16 13:50:17 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"42"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 42 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 42 LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/profile/deleteall" for 127.0.0.1 at 2014-03-16 13:50:25 -0500
+Processing by UsersController#delete as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 42 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 42]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:50:25 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:50:28 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/authenticate?uname=ryan&pwd=hockey" for 127.0.0.1 at 2014-03-16 13:50:32 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"uname"=>"ryan", "pwd"=>"hockey"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ryan' LIMIT 1
+Redirected to http://localhost:3000/users/41/show
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/41/show" for 127.0.0.1 at 2014-03-16 13:50:32 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"41"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 41 LIMIT 1[0m
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 41 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.2ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 40
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 41 LIMIT 1
+Completed 200 OK in 32ms (Views: 8.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/ringers/40/show" for 127.0.0.1 at 2014-03-16 13:50:35 -0500
+Processing by RingersController#show as HTML
+  Parameters: {"ringer_id"=>"40"}
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."id" = 40 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.2ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 40
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 43 LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 44 LIMIT 1
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 46 LIMIT 1[0m
+  Rendered ringers/show.html.erb within layouts/application (0.3ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 41 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-03-16 13:50:47 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:50:47 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:50:49 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.5ms)
