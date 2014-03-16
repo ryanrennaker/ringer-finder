@@ -13,32 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140314001201) do
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "items", force: true do |t|
-    t.string   "image_url"
-    t.string   "name"
-    t.integer  "price"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "category_id"
-  end
-
-  create_table "reviews", force: true do |t|
-    t.integer  "item_id"
-    t.string   "title"
-    t.text     "body"
-    t.integer  "rating"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
   create_table "ringer_sports", force: true do |t|
     t.integer  "ringer_id"
     t.integer  "sport_id"

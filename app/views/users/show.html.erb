@@ -52,12 +52,12 @@
     <div class="col-xs-3"><h4 class="text-right">Gender:</h4></div>
     <div class="col-xs-6">
       <div class="input-group"><div style="padding-top:10px; padding-left:2px">
-        <% if @gender = "Male" %>
-          <input name="gender" type="radio" checked> Male
-          <input name="gender" type="radio"> Female
+        <% if @gender == "Male" %>
+          <input name="gender" value="Male" type="radio" checked> Male
+          <input name="gender" value="Female"type="radio"> Female
         <% else %>
-          <input name="gender" type="radio"> Male
-          <input name="gender" type="radio" checked> Female
+          <input name="gender" value="Male" type="radio"> Male
+          <input name="gender" value="Female" type="radio" checked> Female
         <% end %>
         </div>
       </div>
@@ -111,6 +111,23 @@
 
   <input type="hidden" class="form-control input-md" name="ringer_id" value=<%= @ringer.id %>>
 
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Sports:</h4></div>
+    <div class="col-xs-6">
+      <div class="input-group"><div style="padding-top:10px; padding-left:2px">
+          <% @sports.each do |s| %>
+            <% if @sport_ids_for_this_ringer.index(s[:id]).present? %>
+              <input name=<%= "sport[]" %> value=<%= s[:id] %> type="checkbox" checked> <%= s[:name] %>
+            <% else %>
+              <input name=<%= "sport[]" %> value=<%= s[:id] %> type="checkbox"> <%= s[:name] %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
   <div class="row">
     <div class="col-xs-3"></div>
     <div class="col-xs-6">
@@ -122,7 +139,15 @@
 </form>
 
 <% else %>
+
+
+
+
 <!-- User does not have a Ringer profile filled out, so sees this instead -->
+
+
+
+
 
 <div class="page-header">
   <h1>Ringer Profile <small> (Complete info below. It will be publically visible.)</small></h1>
@@ -149,8 +174,8 @@
     <div class="col-xs-3"><h4 class="text-right">Gender:</h4></div>
     <div class="col-xs-6">
       <div class="input-group"><div style="padding-top:10px; padding-left:2px">
-          <input name="gender" type="radio"> Male
-          <input name="gender" type="radio"> Female
+          <input name="gender" value="Male" type="radio"> Male
+          <input name="gender" value="Female" type="radio"> Female
         </div>
       </div>
     </div>
@@ -197,6 +222,19 @@
     <div class="col-xs-3"><img height="50" src="http://old.thebrokerlist.com/wp-content/uploads/2011/01/head-silhouette-with-question-mark.jpg"> <h4><small>Very original... :(</small></h4></div>
   </div>
 
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Sports:</h4></div>
+    <div class="col-xs-6">
+      <div class="input-group"><div style="padding-top:10px; padding-left:2px">
+          <% @sports.each do |s| %>
+          <input name=<%= "sport[]" %> value=<%= s[:id] %> type="checkbox"> <%= s[:name] %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
   <div class="row">
     <div class="col-xs-3"></div>
     <div class="col-xs-6">
@@ -206,12 +244,5 @@
   </div>
 
 </form>
-
-
-
-
-
-
-
 
 <% end %>

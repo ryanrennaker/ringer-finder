@@ -2,7 +2,7 @@ class RingersController < ApplicationController
 
   def list
     if params[:sport].present?
-      filter_sport = Sport.find_by(:name => params[:sport])
+      filter_sport = Sport.find_by(:name => params[:sport].gsub("-", " "))
       ringersport_list = RingerSport.all.where(:sport_id => filter_sport.id)
       @ringer_sport_pairs = Array.new
       ringersport_list.each do |ringersport|
@@ -27,8 +27,8 @@ class RingersController < ApplicationController
           sport_name = Sport.find_by(:id => rs.sport_id).name
           s.push(sport_name)
         end
-      rs_hash = { :ringer => r, :sports => s}
-      @ringer_sport_pairs.push(rs_hash)
+        rs_hash = { :ringer => r, :sports => s}
+        @ringer_sport_pairs.push(rs_hash)
       end
       @ringer_sport_pairs = @ringer_sport_pairs.sort_by { |hash| hash[:ringer][:first] }
     end
@@ -64,14 +64,18 @@ class RingersController < ApplicationController
     ringer.state = params[:state]
     ringer.bio = params[:bio]
 
-    # sports uggghhhhhh
-    # link ringer to user
-
     user = User.find_by(:id => session[:user_id])
     ringer.user_id = user.id
     ringer.save
     user.has_ringer = true
     user.save
+
+    params[:sport].each do |s|
+      ringersport = RingerSport.new
+      ringersport.ringer_id = Ringer.find_by(:user_id => session[:user_id]).id
+      ringersport.sport_id = s
+      ringersport.save
+    end
 
     usershowpage = "/users/"+session[:user_id].to_s+"/show"
     redirect_to usershowpage, notice: "Profile created"
@@ -92,6 +96,24 @@ class RingersController < ApplicationController
     ringer.img_url = params[:img_url]
     ringer.bio = params[:bio]
     ringer.save
+
+    ringer_id = Ringer.find_by(:user_id => session[:user_id]).id
+
+    # Sync up the sports the user checked with what's in the DB
+
+    #Destroy old RingerSport entries (we'll create new ones)
+    RingerSport.where(:ringer_id => ringer_id).each do |rs|
+      rs.destroy
+    end
+
+    # Create new RingerSport entries
+    params[:sport].each do |s|
+      ringersport = RingerSport.new
+      ringersport.ringer_id = ringer_id
+      ringersport.sport_id = s
+      ringersport.save
+    end
+
     usershowpage = "/users/"+session[:user_id].to_s+"/show"
     redirect_to usershowpage, notice: "Profile updated"
   end

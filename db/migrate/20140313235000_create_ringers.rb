@@ -10,7 +10,6 @@ class CreateRingers < ActiveRecord::Migration
       t.string :state
       t.string :img_url
       t.text :bio
-
       t.timestamps
     end
   end

@@ -39,11 +39,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/products">Everything</a></li>
-        <li><a href="/products?cat=Toys">Toys</a></li>
-        <li><a href="/products?cat=Electronics">Electronics</a></li>
-        <li><a href="/products?cat=Furniture">Furniture</a></li>
-        <li><a href="/products?cat=Other">Everything Else</a></li>
+        <li><a href="/ringers">All Ringers</a></li>
+        <% Sport.all.each do |sport|%>
+        <li><a href=<%= "/ringers?sport="+sport.name.gsub(" ", "-") %>><%= sport.name %></a></li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
