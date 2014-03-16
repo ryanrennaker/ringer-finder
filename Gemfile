@@ -44,6 +44,15 @@ gem 'bcrypt', '~> 3.1.5'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 gem "quiet_assets", group: "development"
 gem "starter_generators", group: "development"
 # gem "better_errors", group: "development"
