@@ -32,7 +32,7 @@
               <% end %>
               <%= review.title %>
             </p>
-            <p>by <%= User.find_by(:id => review.user_id).first_name %></p>
+            <p>by <%= User.find_by(:id => review.user_id).username %></p>
             <p><%= review.body %></p>
           </div>
         </div>
@@ -54,7 +54,7 @@
 
       <select name="user_id">
         <% User.all.each do |user| %>
-          <option value="<%= user.id %>"><%= user.first_name %></option>
+          <option value="<%= user.id %>"><%= user.username %></option>
         <% end %>
       </select>
 

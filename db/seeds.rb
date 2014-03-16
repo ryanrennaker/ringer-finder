@@ -1,7 +1,7 @@
 User.destroy_all
 ["Jeff", "Brian"].each do |name|
   u = User.new
-  u.first_name = name
+  u.username = name
   u.password = "hockey"
   u.save
 end
@@ -125,9 +125,9 @@ puts "There are now #{Review.count} reviews."
 
 
 User.destroy_all
-["madskillz", "nowyouseemenowyoudont", "judochop"].each do |username|
+["madskillz", "nowyouseemenowyoudont", "judochop"].each do |uname|
   u = User.new
-  u.first_name = username
+  u.username = uname
   u.password = "hockey"
   u.has_ringer = false
   u.save

@@ -5,16 +5,13 @@
 <form action="/users/create" class="col-md-4">
 
   <div class="form-group">
-    <label class="control-label">Enter your First Name:</label>
-    <input name="first_name" type="text" class="form-control input-md" placeholder="Your first name...">
+    <label class="control-label">Choose a username and password:</label>
+    <input name="uname" type="text" class="form-control input-md" placeholder="Username">
   </div>
-
   <div class="form-group">
-    <label>Enter a Password:</label>
-    <input name="password" type="text" class="form-control input-md" placeholder="Choose a password that you'll never remember">
+    <input name="pwd" type="password" class="form-control input-md" placeholder="Password">
   </div>
-
-  <button type="submit" class="btn btn-success btn-md">Sign Me Up!</button>
-  or
-  <%= link_to "Go Back", "/" %>
+  </p><button type="button" class="btn btn-danger btn-block">Danger: passwords not encrypted</button>Please don't submit a real password!!!</p>
+  <button type="submit" class="btn btn-success btn-md btn-block">Sign Me Up!</button>
+  <h4>or <%= link_to "go back to home", "/" %></h4>
 </form>

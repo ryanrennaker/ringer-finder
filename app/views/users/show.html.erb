@@ -1,6 +1,217 @@
 <div class="page-header">
-  <h1>Profile</h1>
+  <h1>Login details</h1>
 </div>
-<div>
-<p> Username: <%= @user.first_name %></p>
-<p> Password: <%= @user.password %></p>
+
+<div class="row-condensed">
+  <div class="col-xs-3">
+    <h4 class="text-right">Username:</h4>
+  </div>
+  <div class="col-xs-9">
+    <h4><%= @user.username %></h4>
+  </div>
+</div>
+
+<div class="row-condensed">
+  <div class="col-xs-3">
+    <h4 class="text-right">Password:</h4>
+  </div>
+  <div class="col-xs-9">
+    <h4><%= @user.password %></h4>
+  </div>
+</div>
+<div class="row-condensed">
+</div>
+<div class="row-condensed">
+</div>
+
+<% if @ringer.present? %>
+<!-- User has a Ringer profile filled out and is seeing this -->
+
+<div class="page-header">
+  <h1>Ringer Profile <small> (Edit below to change what's publically visible)</small></h1>
+</div>
+
+<form action="/show/update">
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">First name:</h4></div>
+    <div class="col-xs-6">
+       <input name="first" value=<%= @ringer.first %> type="text" class="form-control input-md" placeholder="First name">
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Last name:</h4></div>
+    <div class="col-xs-6">
+       <input name="last" value=<%= @ringer.last %> type="text" class="form-control input-md" placeholder="Last name">
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Gender:</h4></div>
+    <div class="col-xs-6">
+      <div class="input-group"><div style="padding-top:10px; padding-left:2px">
+        <% if @gender = "Male" %>
+          <input name="gender" type="radio" checked> Male
+          <input name="gender" type="radio"> Female
+        <% else %>
+          <input name="gender" type="radio"> Male
+          <input name="gender" type="radio" checked> Female
+        <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Competition Level:</h4></div>
+    <div class="col-xs-6">
+       <input name="comp_level" value=<%= @ringer.comp_level %> type="text" class="form-control input-md" placeholder="1">
+    </div>
+    <div class="col-xs-3"><h4><small>Enter value: 1-10</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">City:</h4></div>
+    <div class="col-xs-6">
+       <input name="city" value=<%= @ringer.city %> type="text" class="form-control input-md" placeholder="Evanston">
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">State:</h4></div>
+    <div class="col-xs-6">
+       <input name="state" value=<%= @ringer.state %> type="text" class="form-control input-md" placeholder="IL">
+    </div>
+    <div class="col-xs-3"><h4><small>2 letter code</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Photo URL:</h4></div>
+    <div class="col-xs-6">
+       <input name="img_url" value=<%= @ringer.img_url %> type="url" class="form-control input-md" placeholder="http://old.thebrokerlist.com/wp-content/uploads/2011/01/head-silhouette-with-question-mark.jpg">
+    </div>
+    <div class="col-xs-3"><h4><small>Current photo below:</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Bio:</h4></div>
+    <div class="col-xs-6">
+       <textarea name="bio" class="form-control input-md" rows="3"><%= @ringer.bio %></textarea>
+    </div>
+    <% if @ringer.img_url == "http://old.thebrokerlist.com/wp-content/uploads/2011/01/head-silhouette-with-question-mark.jpg"%>
+    <div class="col-xs-3"><img height="50" src=<%= @ringer.img_url %>> <h4><small>Very original... :(</small></h4></div>
+    <% else %>
+    <div class="col-xs-3"><img height="50" src=<%= @ringer.img_url %>> <h4><small>Nice!!!</small></h4></div>
+    <% end %>
+  </div>
+
+  <input type="hidden" class="form-control input-md" name="ringer_id" value=<%= @ringer.id %>>
+
+  <div class="row">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6">
+      <button type="submit" class="btn btn-success btn-lg">Update Profile</button>
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+</form>
+
+<% else %>
+<!-- User does not have a Ringer profile filled out, so sees this instead -->
+
+<div class="page-header">
+  <h1>Ringer Profile <small> (Complete info below. It will be publically visible.)</small></h1>
+</div>
+
+<form action="/show/create">
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">First name:</h4></div>
+    <div class="col-xs-6">
+       <input name="first" type="text" class="form-control input-md" placeholder="First name">
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Last name:</h4></div>
+    <div class="col-xs-6">
+       <input name="last" type="text" class="form-control input-md" placeholder="Last name">
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Gender:</h4></div>
+    <div class="col-xs-6">
+      <div class="input-group"><div style="padding-top:10px; padding-left:2px">
+          <input name="gender" type="radio"> Male
+          <input name="gender" type="radio"> Female
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Competition Level:</h4></div>
+    <div class="col-xs-6">
+       <input name="comp_level" type="text" class="form-control input-md" placeholder="1">
+    </div>
+    <div class="col-xs-3"><h4><small>Enter value: 1-10</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">City:</h4></div>
+    <div class="col-xs-6">
+       <input name="city" type="text" class="form-control input-md" placeholder="Evanston">
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">State:</h4></div>
+    <div class="col-xs-6">
+       <input name="state" type="text" class="form-control input-md" placeholder="IL">
+    </div>
+    <div class="col-xs-3"><h4><small>2 letter code</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Photo URL:</h4></div>
+    <div class="col-xs-6">
+       <input name="img_url" type="url" class="form-control input-md" placeholder="http://old.thebrokerlist.com/wp-content/uploads/2011/01/head-silhouette-with-question-mark.jpg">
+    </div>
+    <div class="col-xs-3"><h4><small>Current photo below:</small></h4></div>
+  </div>
+
+  <div class="row-condensed">
+    <div class="col-xs-3"><h4 class="text-right">Bio:</h4></div>
+    <div class="col-xs-6">
+       <textarea name="bio" placeholder="Fill out your bio here..." class="form-control input-md" rows="3"></textarea>
+    </div>
+    <div class="col-xs-3"><img height="50" src="http://old.thebrokerlist.com/wp-content/uploads/2011/01/head-silhouette-with-question-mark.jpg"> <h4><small>Very original... :(</small></h4></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6">
+      <button type="submit" class="btn btn-success btn-lg">Create Profile</button>
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+</form>
+
+
+
+
+
+
+
+
+<% end %>

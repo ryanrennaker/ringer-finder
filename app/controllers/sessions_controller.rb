@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
   def new
+
   end
 
   def create
-    user = User.find_by(:first_name => params[:fname])
+    user = User.find_by(:username => params[:uname])
       if user.present?
         if user.password == params[:pwd]
           session[:user_id] = user.id
@@ -13,7 +14,7 @@ class SessionsController < ApplicationController
           redirect_to "/login", notice: "Invalid login"
         end
     else
-     redirect_to "/login", notice: "Invalid login"
+     redirect_to "/login", notice: "Unknown user"
     end
   end
 

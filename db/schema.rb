@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20140314001201) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
+    t.string   "username"
     t.string   "password"
     t.boolean  "has_ringer"
     t.datetime "created_at"

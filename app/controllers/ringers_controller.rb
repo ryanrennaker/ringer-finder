@@ -1,6 +1,6 @@
 class RingersController < ApplicationController
 
-  def index
+  def list
     if params[:sport].present?
       filter_sport = Sport.find_by(:name => params[:sport])
       ringersport_list = RingerSport.all.where(:sport_id => filter_sport.id)
@@ -48,6 +48,52 @@ class RingersController < ApplicationController
       s.push(sport_name)
     end
     @rs_hash = { :ringer => r, :sports => s}
+  end
+
+  def create
+    ringer = Ringer.new
+    ringer.first = params[:first]
+    ringer.last = params[:last]
+    if params[:gender]=="Male"
+      ringer.is_male = true
+    else
+      ringer.is_male = false
+    end
+    ringer.comp_level = params[:comp_level].to_i
+    ringer.city = params[:city]
+    ringer.state = params[:state]
+    ringer.bio = params[:bio]
+
+    # sports uggghhhhhh
+    # link ringer to user
+
+    user = User.find_by(:id => session[:user_id])
+    ringer.user_id = user.id
+    ringer.save
+    user.has_ringer = true
+    user.save
+
+    usershowpage = "/users/"+session[:user_id].to_s+"/show"
+    redirect_to usershowpage, notice: "Profile created"
+  end
+
+  def update
+    ringer = Ringer.find_by(:id => params[:ringer_id])
+    ringer.first = params[:first]
+    ringer.last = params[:last]
+    if params[:gender]=="Male"
+      ringer.is_male = true
+    else
+      ringer.is_male = false
+    end
+    ringer.comp_level = params[:comp_level].to_i
+    ringer.city = params[:city]
+    ringer.state = params[:state]
+    ringer.img_url = params[:img_url]
+    ringer.bio = params[:bio]
+    ringer.save
+    usershowpage = "/users/"+session[:user_id].to_s+"/show"
+    redirect_to usershowpage, notice: "Profile updated"
   end
 
 end

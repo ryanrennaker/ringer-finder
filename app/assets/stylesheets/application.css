@@ -12,8 +12,18 @@
  *= require_tree .
  */
 
-.row { border-bottom: solid 2px #7ebafe; margin-bottom: 24px; padding-bottom: 24px;}
+.row { border-bottom: solid 2px #EEE; padding-top:20px; padding-bottom: 20px; margin-right: 0px; margin-left: 0px;}
+.row-condensed { padding-top:10px; padding-bottom: 10px; margin-right: 0px; margin-left: 0px;}
 
-.review { border-bottom: solid 2px #CCC; margin-right: 12px;}
+.review { border-bottom: solid 2px #EEE; margin-right: 12px;}
 
-.sidebar { background: #EEE; padding-top: 12px; padding-bottom: 12px; border: solid 1px #CCC;}
+.sidebar { background: #EEE; padding-top: 12px; padding-bottom: 12px; border: solid 1px #EEE;}
+
+.bg {
+  background: url('http://www.freebiesgallery.com/wp-content/uploads/2013/08/light-blue-background-3.jpg') no-repeat top center fixed;
+  padding-top: 50px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
