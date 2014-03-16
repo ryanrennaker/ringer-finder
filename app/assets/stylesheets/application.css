@@ -21,7 +21,7 @@
 .sidebar { background: #EEE; padding-top: 12px; padding-bottom: 12px; border: solid 1px #EEE;}
 
 .bg {
-  background: url('http://www.freebiesgallery.com/wp-content/uploads/2013/08/light-blue-background-3.jpg') no-repeat top center fixed;
+  background: url('/light-blue-background.jpg') no-repeat top center fixed;
   padding-top: 50px;
   -webkit-background-size: cover;
   -moz-background-size: cover;

@@ -31,7 +31,7 @@
   <h1>Ringer Profile <small> (Edit below to change what's publically visible)</small></h1>
 </div>
 
-<form action="/show/update">
+<form action="/profile/update">
   <div class="row-condensed">
     <div class="col-xs-3"><h4 class="text-right">First name:</h4></div>
     <div class="col-xs-6">
@@ -92,7 +92,7 @@
   <div class="row-condensed">
     <div class="col-xs-3"><h4 class="text-right">Photo URL:</h4></div>
     <div class="col-xs-6">
-       <input name="img_url" value=<%= @ringer.img_url %> type="url" class="form-control input-md" placeholder="http://old.thebrokerlist.com/wp-content/uploads/2011/01/head-silhouette-with-question-mark.jpg">
+       <input name="img_url" value=<%= @ringer.img_url %> type="url" class="form-control input-md" placeholder="http://i59.tinypic.com/2w22eqh.jpg">
     </div>
     <div class="col-xs-3"><h4><small>Current photo below:</small></h4></div>
   </div>
@@ -102,7 +102,7 @@
     <div class="col-xs-6">
        <textarea name="bio" class="form-control input-md" rows="3"><%= @ringer.bio %></textarea>
     </div>
-    <% if @ringer.img_url == "http://old.thebrokerlist.com/wp-content/uploads/2011/01/head-silhouette-with-question-mark.jpg"%>
+    <% if @ringer.img_url == "http://i59.tinypic.com/2w22eqh.jpg"%>
     <div class="col-xs-3"><img height="50" src=<%= @ringer.img_url %>> <h4><small>Very original... :(</small></h4></div>
     <% else %>
     <div class="col-xs-3"><img height="50" src=<%= @ringer.img_url %>> <h4><small>Nice!!!</small></h4></div>
@@ -138,6 +138,29 @@
 
 </form>
 
+<script>
+function confirmDelete()
+  {
+    var answer = confirm("Deleting your profile is irreversible. Would you like to proceed?");
+    if (answer){
+        return true;
+    } else {
+        return false;
+    }
+  }
+</script>
+
+<form name="delete_details" action="/profile/delete">
+   <div class="row-condensed">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6">
+      <input type="hidden" class="form-control input-md" name="ringer_id" value=<%= @ringer.id %>>
+      <button type="submit" class="btn btn-danger" onclick="return confirmDelete()" >Delete Profile</button>
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+</form>
+
 <% else %>
 
 
@@ -153,7 +176,7 @@
   <h1>Ringer Profile <small> (Complete info below. It will be publically visible.)</small></h1>
 </div>
 
-<form action="/show/create">
+<form action="/profile/create">
   <div class="row-condensed">
     <div class="col-xs-3"><h4 class="text-right">First name:</h4></div>
     <div class="col-xs-6">
@@ -209,7 +232,7 @@
   <div class="row-condensed">
     <div class="col-xs-3"><h4 class="text-right">Photo URL:</h4></div>
     <div class="col-xs-6">
-       <input name="img_url" type="url" class="form-control input-md" placeholder="http://old.thebrokerlist.com/wp-content/uploads/2011/01/head-silhouette-with-question-mark.jpg">
+       <input name="img_url" type="url" class="form-control input-md" placeholder="http://i59.tinypic.com/2w22eqh.jpg">
     </div>
     <div class="col-xs-3"><h4><small>Current photo below:</small></h4></div>
   </div>
@@ -219,7 +242,7 @@
     <div class="col-xs-6">
        <textarea name="bio" placeholder="Fill out your bio here..." class="form-control input-md" rows="3"></textarea>
     </div>
-    <div class="col-xs-3"><img height="50" src="http://old.thebrokerlist.com/wp-content/uploads/2011/01/head-silhouette-with-question-mark.jpg"> <h4><small>Very original... :(</small></h4></div>
+    <div class="col-xs-3"><img height="50" src="http://i59.tinypic.com/2w22eqh.jpg"> <h4><small>Very original... :(</small></h4></div>
   </div>
 
   <div class="row-condensed">
@@ -239,6 +262,26 @@
     <div class="col-xs-3"></div>
     <div class="col-xs-6">
       <button type="submit" class="btn btn-success btn-lg">Create Profile</button>
+    </div>
+    <div class="col-xs-3"><h4><small>.</small></h4></div>
+  </div>
+
+  <script>
+  function confirmDeleteEverything()
+    {
+      var answer = confirm("Deleting your entire account is irreversible. Would you like to proceed?");
+      if (answer){
+          return true;
+      } else {
+          return false;
+      }
+    }
+  </script>
+
+   <div class="row-condensed">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6">
+      <a href="/profile/deleteall"><button type="button" class="btn btn-danger" onclick="return confirmDelete()" >Delete Account</button></a>
     </div>
     <div class="col-xs-3"><h4><small>.</small></h4></div>
   </div>

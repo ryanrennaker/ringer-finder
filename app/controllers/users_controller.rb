@@ -46,7 +46,12 @@ class UsersController < ApplicationController
     end
   end
 
-
+  def delete
+    user = User.find_by(:id => session[:user_id])
+    user.destroy
+    reset_session
+    redirect_to root_url, notice: "Your account information has been deleted"
+  end
 
 
 end

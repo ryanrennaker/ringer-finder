@@ -118,5 +118,23 @@ class RingersController < ApplicationController
     redirect_to usershowpage, notice: "Profile updated"
   end
 
+  def delete
+    ringer_id = params[:ringer_id]
+    ringer = Ringer.find_by(:id => ringer_id)
+
+    user = User.find_by(:id => ringer.user_id)
+    user.has_ringer = false
+    user.save
+
+    RingerSport.where(:ringer_id => ringer_id).each do |rs|
+      rs.destroy
+    end
+    ringer.destroy
+
+    usershowpage = "/users/"+session[:user_id].to_s+"/show"
+    redirect_to usershowpage, notice: "Profile information deleted"
+  end
+
+
 end
 
