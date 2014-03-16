@@ -1,5 +1,9 @@
 Home::Application.routes.draw do
 
+  get "/admin" => 'admin#sports'
+  get "/admin/addsport" => 'admin#addsport'
+  get "/admin/deletesport" => 'admin#deletesport'
+
   get "/login" => 'sessions#new'
   get "/logout" => 'sessions#destroy'
   get "/authenticate" => 'sessions#create'

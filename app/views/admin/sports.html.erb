@@ -1,0 +1,63 @@
+
+  <div class="page-header">
+    <h1>Admin:</h1>
+  </div>
+  <div>
+    <h2> Sports </h2>
+  </div>
+
+  <script>
+  function confirmDeleteSport()
+    {
+      var answer = confirm("Deleting a sport is irreversible. It will be removed across the entire site, including from any profiles that have been created. Would you like to proceed?");
+      if (answer){
+          return true;
+      } else {
+          return false;
+      }
+    }
+  </script>
+
+  <% @sports.each do |sport| %>
+    <div class="row-condensed">
+      <div class="col-xs-3"><h4 class="text-right"> <%=sport[:name] %>: </h4></div>
+      <div class="col-xs-2">
+        <h4><small><%=sport[:ringer_count] %> ringers play this sport</small></h4>
+      </div>
+      <div class="col-xs-7">
+      <a href="/admin/deletesport?sport_id=<%=sport[:id].to_s %>"><button type="button" class="btn btn-danger" onclick="return confirmDeleteSport()" >Delete</button></a>
+      <h4><small>.</small></h4>
+      </div>
+    </div>
+  <% end %>
+
+  <script>
+  function confirmAddSport()
+    {
+      var answer = confirm("This sport will be added across the entire site, allowing all users to include it in their profiles. Would you like to proceed?");
+      if (answer){
+          return true;
+      } else {
+          return false;
+      }
+    }
+  </script>
+
+    <div class="row-condensed">
+      <form action="/admin/addsport">
+        <div class="col-xs-5">
+          <input name="sport_name" type="text" class="form-control input-md" placeholder="Add a new sport">
+        </div>
+        <div class="col-xs-7">
+          <button type="submit" class="btn btn-success" onclick="return confirmAddSport()" >Add Sport</button>
+        <h4><small>.</small></h4>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+    </div>
+
+
+
+
+
