@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   def new
-
+    if session[:user_id].present?
+      usershowpage = "/users/"+session[:user_id].to_s+"/show"
+      redirect_to usershowpage
+    end
   end
 
   def create

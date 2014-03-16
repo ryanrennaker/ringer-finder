@@ -33883,3 +33883,883 @@ Processing by RingersController#list as HTML
   [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 34 LIMIT 1[0m
 Completed 200 OK in 22ms (Views: 9.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-03-16 13:24:27 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:24:27 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-03-16 13:24:33 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/create?uname=a&pwd=a" for 127.0.0.1 at 2014-03-16 13:24:40 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"uname"=>"a", "pwd"=>"a"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "has_ringer", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:24:40 UTC +00:00], ["has_ringer", false], ["password", "a"], ["updated_at", Sun, 16 Mar 2014 18:24:40 UTC +00:00], ["username", "a"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'a' LIMIT 1[0m
+Redirected to http://localhost:3000/users/34/show
+Completed 302 Found in 9ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/users/34/show" for 127.0.0.1 at 2014-03-16 13:24:40 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"34"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 34 LIMIT 1
+  [1m[36mSport Load (0.4ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 34 LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/profile/deleteall" for 127.0.0.1 at 2014-03-16 13:24:51 -0500
+Processing by UsersController#delete as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 34 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 34]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:24:52 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-03-16 13:25:45 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/create?uname=a&pwd=a" for 127.0.0.1 at 2014-03-16 13:25:48 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"uname"=>"a", "pwd"=>"a"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("created_at", "has_ringer", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:25:48 UTC +00:00], ["has_ringer", false], ["password", "a"], ["updated_at", Sun, 16 Mar 2014 18:25:48 UTC +00:00], ["username", "a"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'a' LIMIT 1[0m
+Redirected to http://localhost:3000/users/35/show
+Completed 302 Found in 8ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/users/35/show" for 127.0.0.1 at 2014-03-16 13:25:48 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"35"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 35 LIMIT 1
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  Rendered users/show.html.erb within layouts/application (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 35 LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 12.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/profile/deleteall" for 127.0.0.1 at 2014-03-16 13:25:52 -0500
+Processing by UsersController#delete as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 35 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 35]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:25:52 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:25:55 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/authenticate?uname=a&pwd=a" for 127.0.0.1 at 2014-03-16 13:25:59 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"uname"=>"a", "pwd"=>"a"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'a' LIMIT 1
+Redirected to http://localhost:3000/users/36/show
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/36/show" for 127.0.0.1 at 2014-03-16 13:25:59 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"36"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 36 LIMIT 1[0m
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 36 LIMIT 1
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/profile/deleteall" for 127.0.0.1 at 2014-03-16 13:26:11 -0500
+Processing by UsersController#delete as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 36 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 36]]
+  [1m[35m (2.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:26:11 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:26:15 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/authenticate?uname=b&pwd=b" for 127.0.0.1 at 2014-03-16 13:26:18 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"uname"=>"b", "pwd"=>"b"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'b' LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:26:18 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-03-16 13:26:22 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/create?uname=b&pwd=b" for 127.0.0.1 at 2014-03-16 13:26:24 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"uname"=>"b", "pwd"=>"b"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("created_at", "has_ringer", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:26:24 UTC +00:00], ["has_ringer", false], ["password", "b"], ["updated_at", Sun, 16 Mar 2014 18:26:24 UTC +00:00], ["username", "b"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'b' LIMIT 1[0m
+Redirected to http://localhost:3000/users/37/show
+Completed 302 Found in 7ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users/37/show" for 127.0.0.1 at 2014-03-16 13:26:24 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1
+  [1m[36mSport Load (0.4ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/profile/create?first=Ryan&last=&comp_level=&city=&state=&img_url=&bio=&sport%5B%5D=38" for 127.0.0.1 at 2014-03-16 13:26:30 -0500
+Processing by RingersController#create as HTML
+  Parameters: {"first"=>"Ryan", "last"=>"", "comp_level"=>"", "city"=>"", "state"=>"", "img_url"=>"", "bio"=>"", "sport"=>["38"]}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ringers" ("bio", "city", "comp_level", "created_at", "first", "is_male", "last", "state", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bio", ""], ["city", ""], ["comp_level", 0], ["created_at", Sun, 16 Mar 2014 18:26:30 UTC +00:00], ["first", "Ryan"], ["is_male", false], ["last", ""], ["state", ""], ["updated_at", Sun, 16 Mar 2014 18:26:30 UTC +00:00], ["user_id", 37]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "has_ringer" = ?, "updated_at" = ? WHERE "users"."id" = 37[0m  [["has_ringer", true], ["updated_at", Sun, 16 Mar 2014 18:26:30 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mRinger Load (0.3ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 37 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ringer_sports" ("created_at", "ringer_id", "sport_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 16 Mar 2014 18:26:30 UTC +00:00], ["ringer_id", 36], ["sport_id", 38], ["updated_at", Sun, 16 Mar 2014 18:26:30 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/37/show
+Completed 302 Found in 16ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/37/show" for 127.0.0.1 at 2014-03-16 13:26:30 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1[0m
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 37 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.1ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 36
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/profile/delete?ringer_id=36" for 127.0.0.1 at 2014-03-16 13:26:51 -0500
+Processing by RingersController#delete as HTML
+  Parameters: {"ringer_id"=>"36"}
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."id" = 36 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "has_ringer" = ?, "updated_at" = ? WHERE "users"."id" = 37  [["has_ringer", false], ["updated_at", Sun, 16 Mar 2014 18:26:51 UTC +00:00]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mRingerSport Load (0.2ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 36
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "ringer_sports" WHERE "ringer_sports"."id" = ?  [["id", 125]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "ringers" WHERE "ringers"."id" = ?[0m  [["id", 36]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/37/show
+Completed 302 Found in 14ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/users/37/show" for 127.0.0.1 at 2014-03-16 13:26:51 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"37"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1[0m
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/profile/deleteall" for 127.0.0.1 at 2014-03-16 13:27:04 -0500
+Processing by UsersController#delete as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 37]]
+  [1m[35m (2.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:27:04 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:29:28 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/authenticate?uname=ryan&pwd=hockey" for 127.0.0.1 at 2014-03-16 13:29:32 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"uname"=>"ryan", "pwd"=>"hockey"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ryan' LIMIT 1[0m
+Redirected to http://localhost:3000/users/32/show
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:29:32 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.1ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:31:08 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.3ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 19ms (Views: 10.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:37:36 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.4ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.3ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (21.2ms)
+Completed 500 Internal Server Error in 28ms
+
+ActionView::Template::Error (undefined local variable or method `ringer' for #<#<Class:0x007fed5f0ba898>:0x007fed5cfdd9b8>):
+    29:     <h4 class="text-right">Public profile:</h4>
+    30:   </div>
+    31:   <div class="col-xs-9">
+    32:     <a href="/ringers/<%= ringer.id.to_s %>/show"><h4>Link to public profile view</h4></a>
+    33:   </div>
+    34: </div>
+    35: 
+  app/views/users/show.html.erb:32:in `_app_views_users_show_html_erb___3686279713684815424_70328722037780'
+
+
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/ryanrennaker/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (20.3ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:37:49 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.1ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (2.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:38:08 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (2.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 10.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:38:20 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 11.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:39:10 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (2.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:39:19 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (2.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 10.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/ringers/30/show" for 127.0.0.1 at 2014-03-16 13:39:23 -0500
+Processing by RingersController#show as HTML
+  Parameters: {"ringer_id"=>"30"}
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."id" = 30 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 37 LIMIT 1
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 38 LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 40 LIMIT 1
+  Rendered ringers/show.html.erb within layouts/application (0.2ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/ringers/30/show" for 127.0.0.1 at 2014-03-16 13:39:27 -0500
+Processing by RingersController#show as HTML
+  Parameters: {"ringer_id"=>"30"}
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."id" = 30 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.1ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 37 LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 38 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 40 LIMIT 1[0m
+  Rendered ringers/show.html.erb within layouts/application (0.2ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:39:32 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-03-16 13:39:35 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:39:35 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:39:37 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/authenticate?uname=Ryan&pwd=hockey" for 127.0.0.1 at 2014-03-16 13:39:43 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"uname"=>"Ryan", "pwd"=>"hockey"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'Ryan' LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:39:43 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/authenticate?uname=ryan&pwd=hockey" for 127.0.0.1 at 2014-03-16 13:39:48 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"uname"=>"ryan", "pwd"=>"hockey"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ryan' LIMIT 1[0m
+Redirected to http://localhost:3000/users/32/show
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:39:48 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.4ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.1ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 8.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:40:08 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:40:32 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 12.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:40:41 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.1ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (2.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 11.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/ringers?sport=Ultimate-Frisbee" for 127.0.0.1 at 2014-03-16 13:41:01 -0500
+Processing by RingersController#list as HTML
+  Parameters: {"sport"=>"Ultimate-Frisbee"}
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."name" = 'Ultimate Frisbee' LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."sport_id" = 41[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."id" = 27 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 27[0m
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 37 LIMIT 1
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 38 LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 39 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 40 LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 41 LIMIT 1
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 42 LIMIT 1[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."id" = 29 LIMIT 1
+  [1m[36mRingerSport Load (0.1ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 29[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 39 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 41 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 42 LIMIT 1
+  Rendered ringers/list.html.erb within layouts/application (0.4ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 20ms (Views: 8.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:41:02 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.3ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30
+  Rendered users/show.html.erb within layouts/application (4.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 22ms (Views: 16.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/ringers/30/show" for 127.0.0.1 at 2014-03-16 13:41:05 -0500
+Processing by RingersController#show as HTML
+  Parameters: {"ringer_id"=>"30"}
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."id" = 30 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.2ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 37 LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 38 LIMIT 1
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 40 LIMIT 1[0m
+  Rendered ringers/show.html.erb within layouts/application (0.2ms)
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 9.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:41:10 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:41:13 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.1ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:41:20 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:41:21 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:44:55 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 50ms (Views: 8.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:44:57 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:44:58 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/users/32/show
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:44:58 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.4ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-03-16 13:45:02 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:45:02 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:45:03 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-03-16 13:45:10 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.3ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:45:15 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:45:18 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/authenticate?uname=Ryan&pwd=hockey" for 127.0.0.1 at 2014-03-16 13:45:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"uname"=>"Ryan", "pwd"=>"hockey"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'Ryan' LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:45:25 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/authenticate?uname=ryan&pwd=hockey" for 127.0.0.1 at 2014-03-16 13:45:30 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"uname"=>"ryan", "pwd"=>"hockey"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ryan' LIMIT 1[0m
+Redirected to http://localhost:3000/users/32/show
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:45:30 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.2ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:45:33 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-03-16 13:45:35 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/users/32/show
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:45:35 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mRinger Load (0.3ms)[0m  SELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1
+  [1m[36mRingerSport Load (0.1ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 8.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/ringers" for 127.0.0.1 at 2014-03-16 13:45:41 -0500
+Processing by RingersController#list as HTML
+  [1m[35mRinger Load (0.4ms)[0m  SELECT "ringers".* FROM "ringers"
+  [1m[36mRingerSport Load (0.3ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 27[0m
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 37 LIMIT 1
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 38 LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 39 LIMIT 1
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 40 LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 41 LIMIT 1
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 42 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.1ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 28
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 39 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 40 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 29[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 39 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 41 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 42 LIMIT 1
+  [1m[36mRingerSport Load (0.2ms)[0m  [1mSELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 37 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 38 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 40 LIMIT 1
+  Rendered ringers/list.html.erb within layouts/application (0.9ms)
+  [1m[36mSport Load (0.3ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 28ms (Views: 13.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/ringers/28/show" for 127.0.0.1 at 2014-03-16 13:45:43 -0500
+Processing by RingersController#show as HTML
+  Parameters: {"ringer_id"=>"28"}
+  [1m[36mRinger Load (0.3ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."id" = 28 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.2ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 28
+  [1m[36mSport Load (0.1ms)[0m  [1mSELECT "sports".* FROM "sports" WHERE "sports"."id" = 39 LIMIT 1[0m
+  [1m[35mSport Load (0.1ms)[0m  SELECT "sports".* FROM "sports" WHERE "sports"."id" = 40 LIMIT 1
+  Rendered ringers/show.html.erb within layouts/application (0.3ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:46:45 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.1ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:46:59 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+  [1m[35mSport Load (0.3ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.1ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/32/show" for 127.0.0.1 at 2014-03-16 13:47:24 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"32"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1[0m
+  [1m[35mSport Load (0.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mRinger Load (0.2ms)[0m  [1mSELECT "ringers".* FROM "ringers" WHERE "ringers"."user_id" = 32 LIMIT 1[0m
+  [1m[35mRingerSport Load (0.1ms)[0m  SELECT "ringer_sports".* FROM "ringer_sports" WHERE "ringer_sports"."ringer_id" = 30
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 13ms (Views: 8.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-16 13:47:33 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mSport Load (0.2ms)[0m  [1mSELECT "sports".* FROM "sports"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.4ms)

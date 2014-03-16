@@ -19,16 +19,29 @@
     <h4><%= @user.password %></h4>
   </div>
 </div>
-<div class="row-condensed">
-</div>
-<div class="row-condensed">
-</div>
+
 
 <% if @ringer.present? %>
+
 <!-- User has a Ringer profile filled out and is seeing this -->
+<div class="row-condensed">
+  <div class="col-xs-3">
+    <h4 class="text-right">Public profile:</h4>
+  </div>
+  <div class="col-xs-9">
+    <a href="/ringers/<%= @ringer.id.to_s %>/show"><h4><u>Click to view public profile</u></h4></a>
+  </div>
+</div>
+<div class="row-condensed">
+</div>
+<div class="row-condensed">
+</div>
+<div class="row-condensed">
+</div>
 
 <div class="page-header">
   <h1>Ringer Profile <small> (Edit below to change what's publically visible)</small></h1>
+
 </div>
 
 <form action="/profile/update">
@@ -170,7 +183,12 @@ function confirmDelete()
 
 
 
-
+<div class="row-condensed">
+</div>
+<div class="row-condensed">
+</div>
+<div class="row-condensed">
+</div>
 
 <div class="page-header">
   <h1>Ringer Profile <small> (Complete info below. It will be publically visible.)</small></h1>
@@ -281,7 +299,7 @@ function confirmDelete()
    <div class="row-condensed">
     <div class="col-xs-3"></div>
     <div class="col-xs-6">
-      <a href="/profile/deleteall"><button type="button" class="btn btn-danger" onclick="return confirmDelete()" >Delete Account</button></a>
+      <a href="/profile/deleteall"><button type="button" class="btn btn-danger" onclick="return confirmDeleteEverything()" >Delete Account</button></a>
     </div>
     <div class="col-xs-3"><h4><small>.</small></h4></div>
   </div>
