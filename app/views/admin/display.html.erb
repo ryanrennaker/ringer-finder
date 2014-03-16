@@ -57,7 +57,33 @@
     <div class="row">
     </div>
 
+  <div>
+    <h2> Ringers </h2>
+  </div>
 
+  <script>
+  function confirmDeleteRinger()
+    {
+      var answer = confirm("This ringer will be deleted from the database. The corresponding user will still be able to log in to an empty profile. Do you wish to continue?");
+      if (answer){
+          return true;
+      } else {
+          return false;
+      }
+    }
+  </script>
 
-
+  <% @ringer_sport_pairs.each do |rs_pair| %>
+    <div class="row-condensed">
+      <% ringer = rs_pair[:ringer] %>
+      <div class="col-xs-3"><a href="/ringers/<%=ringer.id.to_s %>/show"><h4 class="text-right"><%=ringer.first + " " + ringer.last %> (ID: <%=ringer.id %>): </h4></a></div>
+      <div class="col-xs-2">
+        <h4><small>Plays <%=rs_pair[:ringersport_ids].count %> sports</small></h4>
+      </div>
+      <div class="col-xs-7">
+      <a href="/admin/deleteringer?ringer_id=<%=ringer.id.to_s %>"><button type="button" class="btn btn-danger" onclick="return confirmDeleteRinger()" >Delete</button></a>
+      <h4><small>.</small></h4>
+      </div>
+    </div>
+  <% end %>
 

@@ -123,8 +123,11 @@ class RingersController < ApplicationController
     ringer = Ringer.find_by(:id => ringer_id)
 
     user = User.find_by(:id => ringer.user_id)
-    user.has_ringer = false
-    user.save
+
+    if user.present?
+      user.has_ringer = false
+      user.save
+    end
 
     RingerSport.where(:ringer_id => ringer_id).each do |rs|
       rs.destroy
